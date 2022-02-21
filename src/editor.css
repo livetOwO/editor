@@ -2,3 +2,9 @@
 	padding: 10px 20px;
 	border: 1px solid black;
 }
+
+editor-row {
+	display: block;
+	padding: 10px 20px;
+	height: 20px;
+}

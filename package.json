@@ -1,0 +1,11 @@
+{
+  "name": "0__project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/han-bom/editor.git",
+  "author": "리벳 <livet@acon3d.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}
