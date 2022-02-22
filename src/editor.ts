@@ -1,4 +1,4 @@
-class EditorRow extends HTMLElement {
+class EditorBlock extends HTMLElement {
 	constructor() {
 		super();
 	}
@@ -10,7 +10,7 @@ class EditorRow extends HTMLElement {
 	}
 
 	newLine() {
-		const line = new EditorRow();
+		const line = new EditorBlock();
 		this.after(line);
 		line.focus();
 
@@ -18,11 +18,11 @@ class EditorRow extends HTMLElement {
 	}
 
 	onKeyDown(e: KeyboardEvent) {
-		if (e.key === 'ArrowUp' && this.previousElementSibling instanceof EditorRow) {
+		if (e.key === 'ArrowUp' && this.previousElementSibling instanceof EditorBlock) {
 			this.previousElementSibling?.focus();
 		}
 
-		if (e.key === 'ArrowDown' && this.nextElementSibling instanceof EditorRow) {
+		if (e.key === 'ArrowDown' && this.nextElementSibling instanceof EditorBlock) {
 			this.nextElementSibling?.focus();
 		}
 	}
@@ -35,13 +35,13 @@ class EditorRow extends HTMLElement {
 	}
 }
 
-window.customElements.define('editor-row', EditorRow);
+window.customElements.define('editor-block', EditorBlock);
 
 function initEditor(element: HTMLElement) {
 	element.dataset.editor = "true";
 	element.classList.add('editor-theme-default');
 
-	const line = document.createElement('editor-row');
+	const line = document.createElement('editor-block');
 
 	element.appendChild(line);
 	
