@@ -5,6 +5,11 @@
   "repository": "https://github.com/han-bom/editor.git",
   "author": "리벳 <livet@kakao.com>",
   "license": "MIT",
+  "scripts": {
+	"build": "tsc",
+	"dev": "tsc -w",
+	"test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
     "typescript": "^4.5.5"
   }
