@@ -2,3 +2,7 @@
 	padding: 10px 20px;
 	border: 1px solid black;
 }
+
+.editor-theme-default .block {
+	white-space: pre-wrap;
+}

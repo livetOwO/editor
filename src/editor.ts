@@ -1,6 +1,7 @@
 class EditorBlock extends HTMLDivElement {
 	constructor() {
 		super();
+		this.classList.add('block');
 	}
 
 	connectedCallback() {
