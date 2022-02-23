@@ -4,6 +4,14 @@ class EditorBlock extends HTMLDivElement {
 		this.classList.add('block');
 	}
 
+	get prevBlock(): EditorBlock | null {
+		return this.previousElementSibling instanceof EditorBlock ? this.previousElementSibling : null;
+	}
+
+	get nextBlock(): EditorBlock | null {
+		return this.nextElementSibling instanceof EditorBlock ? this.nextElementSibling : null;
+	}
+
 	connectedCallback() {
 		this.setAttribute('contentEditable', 'true');
 		this.addEventListener('keydown', this.onKeyDown);
@@ -19,12 +27,12 @@ class EditorBlock extends HTMLDivElement {
 	}
 
 	onKeyDown(e: KeyboardEvent) {
-		if (e.key === 'ArrowUp' && this.previousElementSibling instanceof EditorBlock) {
-			this.previousElementSibling?.focus();
+		if (e.key === 'ArrowUp') {
+			this.prevBlock?.focus();
 		}
 
-		if (e.key === 'ArrowDown' && this.nextElementSibling instanceof EditorBlock) {
-			this.nextElementSibling?.focus();
+		if (e.key === 'ArrowDown') {
+			this.nextBlock?.focus();
 		}
 	}
 
