@@ -1,4 +1,4 @@
-class EditorBlock extends HTMLElement {
+class EditorBlock extends HTMLDivElement {
 	constructor() {
 		super();
 	}
@@ -35,13 +35,13 @@ class EditorBlock extends HTMLElement {
 	}
 }
 
-window.customElements.define('editor-block', EditorBlock);
+window.customElements.define('editor-block', EditorBlock, { extends: 'div' });
 
 function initEditor(element: HTMLElement) {
 	element.dataset.editor = "true";
 	element.classList.add('editor-theme-default');
 
-	const line = document.createElement('editor-block');
+	const line = new EditorBlock();
 
 	element.appendChild(line);
 	
