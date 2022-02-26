@@ -13,6 +13,7 @@ class EditorBlock extends HTMLDivElement {
 	}
 
 	connectedCallback() {
+		this.innerHTML = '\n';
 		this.setAttribute('contentEditable', 'true');
 		this.addEventListener('keydown', this.onKeyDown);
 		this.addEventListener('keypress', this.onKeyPress);
@@ -47,6 +48,7 @@ class EditorBlock extends HTMLDivElement {
 window.customElements.define('editor-block', EditorBlock, { extends: 'div' });
 
 function initEditor(element: HTMLElement) {
+	element.contentEditable = 'true';
 	element.dataset.editor = "true";
 	element.classList.add('editor-theme-default');
 

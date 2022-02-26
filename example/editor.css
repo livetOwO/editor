@@ -1,8 +1,6 @@
-.editor-theme-default {
+.editor-theme-default .block {
+	margin: 0 10px;
 	padding: 10px 20px;
 	border: 1px solid black;
-}
-
-.editor-theme-default .block {
 	white-space: pre-wrap;
 }
