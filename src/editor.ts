@@ -4,6 +4,10 @@ class EditorBlock extends HTMLDivElement {
 		this.classList.add('block');
 	}
 
+	get hasFocus(): Boolean {
+		return getFocusedBlock() === this;
+	}
+
 	get prevBlock(): EditorBlock | null {
 		return this.previousElementSibling instanceof EditorBlock ? this.previousElementSibling : null;
 	}
@@ -27,6 +31,14 @@ class EditorBlock extends HTMLDivElement {
 		return this;
 	}
 
+	bold() {
+		if (this.hasFocus) {
+			document.execCommand('bold');
+		}
+
+		return this;
+	}
+
 	onKeyDown(e: KeyboardEvent) {
 		if (e.key === 'ArrowUp') {
 			this.prevBlock?.focus();
@@ -46,6 +58,13 @@ class EditorBlock extends HTMLDivElement {
 }
 
 window.customElements.define('editor-block', EditorBlock, { extends: 'div' });
+
+function getFocusedBlock(): EditorBlock | null {
+	const selection = window.getSelection();
+	const element = selection?.focusNode?.parentElement?.closest('.block') ?? null;
+
+	return element instanceof EditorBlock ? element : null;
+}
 
 function initEditor(element: HTMLElement) {
 	element.contentEditable = 'true';

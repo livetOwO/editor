@@ -8,10 +8,17 @@
 	<link rel="stylesheet" href="editor.css">
 </head>
 <body>
+	<button id="bold">bold</button>
 	<div id="root"></div>
 	<script src="../dist/editor.js"></script>
 	<script>
 		initEditor(document.getElementById('root'));
+		document.getElementById('bold').addEventListener('mousedown', function(e) {
+			e.preventDefault();
+		});
+		document.getElementById('bold').addEventListener('click', function() {
+			getFocusedBlock().bold();
+		});
 	</script>
 </body>
 </html>
